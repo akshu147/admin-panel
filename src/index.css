@@ -1,0 +1,28 @@
+
+@import "tailwindcss";
+body, html {
+    background-color: #6daddb;
+    background-image: linear-gradient(315deg, #6daddb 0%, #313131 74%);
+    height: 100%;
+    overflow: hidden;
+    
+ 
+   
+    
+}
+.left-section::-webkit-scrollbar {
+    display: none;
+}
+input::file-selector-button {
+    background: rgba(255, 255, 255, 0.182);
+    padding: 5px 10px;
+    margin-right:10px;
+}
+
+option {
+    background: #313131
+   
+}
+::-webkit-scrollbar {
+    display: none;
+}
