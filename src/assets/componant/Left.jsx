@@ -64,7 +64,7 @@ const Left = () => {
  
  
   return (
-    <section style={{width:contextdata.width, position:position, left:contextdata.show}} className=' bg-[gray] z-20 border-r-[1px] border-slate-500 h-[100vh] border  overflow-auto left-section text-white transition-all duration-200'>
+    <section style={{width:contextdata.width, position:position, left:contextdata.show}} className=' bg-[#313131] z-20 border-r-[1px] border-slate-500 h-[100vh] border  overflow-auto left-section text-white transition-all duration-200'>
       {/* Logo Section */}
       <figure className='border-b-[1px] border-slate-500 p-[10px_20px] sticky top-0 bg-[#313131] z-10'>
         <img src={logo} alt='Logo' />
