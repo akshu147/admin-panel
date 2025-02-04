@@ -36,8 +36,8 @@ root.render(
               <Route path='/' element={<Deshboard />} />
               <Route path='color' element={<Color />} />
               <Route path='profile' element={<Profile />} />
-              <Route path='add-size' element={<Addsize />} />
-              <Route path='view-size' element={<Viewsize />} />
+              <Route path='size/add-size' element={<Addsize />} />
+              <Route path='size/view-size' element={<Viewsize />} />
               <Route path='add-category' element={<Addcategory />} />
               <Route path='view-category' element={<Viewcategory />} />
               <Route path='add-product-cat' element={<Addproductcat />} />

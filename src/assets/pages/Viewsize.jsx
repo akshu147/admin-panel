@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Head from '../componant/Head'
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { MdEditSquare } from "react-icons/md";
+import axios from 'axios';
 
 
 
 
 const Viewsize = () => {
+  const apiUrl = import.meta.env.VITE_API_BASE_URL //env file url
+  const [allsize, setallsize] = useState([])
+  const getsize = async(e)=> {
+    const responce = await axios.get(`${apiUrl}/size/show-size`)
+    setallsize(responce.data.data)
+  }
+  useEffect(()=> {
+    getsize()
+  }, [])
+  console.log(allsize)
   return (
     <>
       <section className='w-full'>
@@ -26,7 +37,7 @@ const Viewsize = () => {
             <header className='bg-slate-700 p-[10px_10px]  font-semibold'>
               View Size
             </header>
-            <div className='p-[15px] border-[4px] w-full overflow-auto'>
+            <div className='p-[15px] w-full overflow-auto'>
               <table className='w-[900px] rounded-[10px] overflow-hidden'>
                 <tbody>
                 <tr className='border-b-[1px] border-slate-500'>
@@ -37,13 +48,17 @@ const Viewsize = () => {
                   <th className='text-left p-[10px] font-bold text-[18px]'>Status</th>
 
                 </tr>
-                <tr>
+               {
+                allsize.map((value,index)=> (
+                  <tr>
                   <td className='p-[10px]'><input type="checkbox" /></td>
-                  <td className='p-[10px]'>1</td>
-                  <td className='p-[10px]'>s</td>
+                  <td className='p-[10px]'>{index}</td>
+                  <td className='p-[10px]'>{value.size}</td>
                   <td className='p-[10px] flex gap-[3px] items-center'><i className='text-red-500'><RiDeleteBin6Fill /></i><span>/</span><i className='text-yellow-400'><MdEditSquare /></i></td>
-                  <td className='p-[10px]'>Display</td>
+                  <td className='p-[10px]'>{value.status}</td>
                 </tr>
+                ))
+               }
                 </tbody>
               </table>
             </div>

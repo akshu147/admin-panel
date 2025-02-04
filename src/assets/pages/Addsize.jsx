@@ -1,8 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Head from '../componant/Head'
+import axios from 'axios'
 
-const Addsize = () => {
+const Addsize = (e) => {
+  const apiUrl = import.meta.env.VITE_API_BASE_URL //env file url
+
+  const addsize = async(e)=> {
+    e.preventDefault();
+    const data = {
+      size:e.target.size.value,
+      status:e.target.status.value
+    }
+    // console.log(data)
+    try{
+      const responce = await axios.post(`${apiUrl}/size/add-size`, data)
+      console.log(responce)
+
+    }
+    catch(err) {
+      console.log("Something went wrong")
+    }
+  }
+ 
   return (
     <>
       <section className='w-full h-[100vh] overflow-auto'>
@@ -24,19 +44,20 @@ const Addsize = () => {
             <header className='bg-slate-700 p-[10px_10px]  font-semibold'>
               Add Size
             </header>
-            <form action='' className='p-[20px]'>
+            <form action='' className='p-[20px]' onSubmit={addsize}>
               <p>Size Name</p>
               <input
                 className='block border w-full my-[15px] p-[5px_10px] rounded-[8px] border-slate-500 outline-none focus:shadow-[1px_1px_5px_white] transition-all duration-200'
                 type='text'
                 placeholder='Add Size'
+                name='size'
               />
               <div className='flex gap-[15px] my-[15px]'>
                 <span>Status</span>
                 <span>:</span>
-                <span><input type="radio" name='status' className='focus:bg-blue-600 focus:outline-none' /></span>
+                <span><input type="radio" name='status' value="display" className='focus:bg-blue-600 focus:outline-none' /></span>
                 <span>Dispaly</span>
-                <span><input type="radio" name='status' className='focus:bg-blue-600 focus:outline-none' /></span>
+                <span><input type="radio" name='status' value="hide" className='focus:bg-blue-600 focus:outline-none' /></span>
                 <span>Hide</span>
               </div>
               <button className='p-[8px_15px] rounded-[8px] bg-[#6261CC] cursor-pointer'>Add Size</button>

@@ -6,12 +6,26 @@ import img from '../images/rdj.jpg'
 import { FaInstagram } from 'react-icons/fa'
 import { RiYoutubeLine } from 'react-icons/ri'
 import { FaXTwitter } from 'react-icons/fa6'
+import axios from 'axios'
 
 const Profile = () => {
+  const apiUrl = import.meta.env.VITE_API_BASE_URL //env file url
+  const updateprofile = async(e)=> {
+    e.preventDefault()
+    const alldata = e.target
+    try{
+      const responce = await axios.put(`${apiUrl}/profile/update-profile`, alldata)
+      console.log(responce)
+
+    }
+    catch(err) {
+      console.log(`something went wrong ${err.message}`)
+    }
+  }
   return (
     <>
       <section className='w-full h-[100vh] overflow-auto'>
-        <div className="sticky top-0 bg-[#313131] z-10">
+        <div className='sticky top-0 bg-[#313131] z-10'>
           <Head />
           <div className='border-b-[1px] border-slate-600 text-white p-[10px_20px] opacity-80'>
             <span className='text-blue-500'>
@@ -26,13 +40,14 @@ const Profile = () => {
             <header className='bg-slate-700 p-[10px_10px]  font-semibold'>
               Prifile
             </header>
-            <form action='' className='p-[20px]'>
+            <form action='' className='p-[20px]' onSubmit={updateprofile}>
               <p>Name</p>
               <input
                 className='block border w-full my-[15px] p-[5px_10px] rounded-[8px] border-slate-500 outline-none focus:shadow-[1px_1px_5px_white] transition-all duration-200'
                 type='text'
                 placeholder='Name'
                 value={'akshay jangid'}
+                name='name'
               />
               <p className='mb-[15px]'>Social Links</p>
               <div>
@@ -44,6 +59,7 @@ const Profile = () => {
                     className='block border w-[50%] my-[15px] p-[5px_10px] rounded-[8px] border-slate-500 outline-none focus:shadow-[1px_1px_5px_white] transition-all duration-200'
                     type='url'
                     placeholder='Facebook'
+                    name='facebook'
                   />
                 </div>
                 <div className='flex items-center gap-[10px]'>
@@ -53,7 +69,8 @@ const Profile = () => {
                   <input
                     className='block border w-[50%] my-[15px] p-[5px_10px] rounded-[8px] border-slate-500 outline-none focus:shadow-[1px_1px_5px_white] transition-all duration-200'
                     type='url'
-                    placeholder='Facebook'
+                    placeholder='Instagram'
+                    name='instagram'
                   />
                 </div>
                 <div className='flex items-center gap-[10px]'>
@@ -63,7 +80,8 @@ const Profile = () => {
                   <input
                     className='block border w-[50%] my-[15px] p-[5px_10px] rounded-[8px] border-slate-500 outline-none focus:shadow-[1px_1px_5px_white] transition-all duration-200'
                     type='url'
-                    placeholder='Facebook'
+                    placeholder='Youtube'
+                    name='youtube'
                   />
                 </div>
                 <div className='flex items-center gap-[10px]'>
@@ -73,12 +91,16 @@ const Profile = () => {
                   <input
                     className='block border w-[50%] my-[15px] p-[5px_10px] rounded-[8px] border-slate-500 outline-none focus:shadow-[1px_1px_5px_white] transition-all duration-200'
                     type='url'
-                    placeholder='Facebook'
+                    placeholder='Twitter'
+                    name='twitter'
                   />
                 </div>
               </div>
               <p className='mb-[15px]'>Logo</p>
               <img width={'50px'} src={img} alt='' />
+              <input type="file" placeholder='xxx' className=' border border-slate-500 rounded-[8px] focus:shadow-[1px_1px_5px_white] transition-all duration-200' />
+
+
               <p className='my-[15px]'>Sub Logo</p>
               <img width={'50px'} src={img} alt='' />
               <p className='my-[15px]'>Password</p>
@@ -86,8 +108,9 @@ const Profile = () => {
                 className='block border w-[50%] my-[15px] p-[5px_10px] rounded-[8px] border-slate-500 outline-none focus:shadow-[1px_1px_5px_white] transition-all duration-200'
                 type='password'
                 placeholder='password'
+                name='password'
               />
-              <button className='p-[8px_15px] rounded-[8px] bg-[#6261CC]'>
+              <button type='submit' className='p-[8px_15px] rounded-[8px] bg-[#6261CC]'>
                 Update
               </button>
             </form>
