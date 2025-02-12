@@ -23,6 +23,8 @@ import Orders from './assets/pages/Orders'
 import Sliderdetail from './assets/pages/Sliderdetail'
 import Sliderview from './assets/pages/Sliderview'
 import TermaConditons from './assets/pages/TermaConditons'
+import Updatesize from './assets/pages/Updatesize'
+import Updatecategory from './assets/pages/Updatecategory'
 const root = createRoot(document.getElementById('root'))
 
 root.render(
@@ -38,11 +40,12 @@ root.render(
               <Route path='profile' element={<Profile />} />
               <Route path='size/add-size' element={<Addsize />} />
               <Route path='size/view-size' element={<Viewsize />} />
-              <Route path='add-category' element={<Addcategory />} />
-              <Route path='view-category' element={<Viewcategory />} />
+              <Route path='parent/add-category' element={<Addcategory />} />
+              <Route path='parent/view-category' element={<Viewcategory />} />
               <Route path='add-product-cat' element={<Addproductcat />} />
               <Route path='view-product-cat' element={<Viewproductcat />} />
               <Route path='product-items' element={<Productitems />} />
+              <Route path='size/update-size/:_id' element={<Updatesize/>}/>
               <Route
                 path='product/product-detail'
                 element={<Productdetail />}
@@ -51,9 +54,11 @@ root.render(
               <Route path='story/story-view' element={<Storyview />} />
               <Route path='slider/slider-view' element={<Sliderview />} />
               <Route path="slider/slider-detail" element={<Sliderdetail/>}/>
+              <Route path='category/update-category/:id' element={<Updatecategory/>}/>
             </Route>
             <Route path='/orders' element={<Orders />} />
             <Route path='terms$conditions' element={<TermaConditons/>}/>
+          
 
           </Routes>
         </BrowserRouter>

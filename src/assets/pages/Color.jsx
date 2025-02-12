@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import Head from '../componant/Head'
 import { Link } from 'react-router-dom'
-
+import Swal from 'sweetalert2'
 import ColorPicker from 'react-pick-color'
 import axios from 'axios'
+
+
+
 
 const Color = () => {
   const apiUrl = import.meta.env.VITE_API_BASE_URL //env file url
@@ -18,9 +21,19 @@ const Color = () => {
         `${apiUrl}/color/add-color`,
         colordata
       )
-      if (responce.status === 200) console.log(responce)
+      if (responce.status === 200) Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Successfully color added",
+        showConfirmButton: false,
+        timer: 1500
+      });
     } catch (err) {
-      console.log(err)
+      if(err.status === 400) Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Color already exist!",
+      });
     }
   }
   
@@ -29,7 +42,7 @@ const Color = () => {
 
   return (
     <>
-      <section className='w-full h-[100vh]'>
+      <section className='w-full h-[100vh] overflow-auto'>
         <div className='sticky top-0 bg-[#313131] z-10'>
           <Head />
           <div className='border-b-[1px]  sticky top-0 text-white p-[10px_20px] opacity-80'>
