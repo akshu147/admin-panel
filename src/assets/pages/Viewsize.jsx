@@ -80,7 +80,7 @@ const Viewsize = () => {
     }
     getsize()
     setselectedsize("")
-    
+
   }
   console.log(selectedsize)
 
@@ -104,12 +104,7 @@ const Viewsize = () => {
               <thead>
                 <tr className='border-b border-slate-500'>
                   <th className='text-left p-3 font-bold text-lg flex gap-2 items-center'>
-                    <span
-                      type='button'
-                      className='border rounded-[8px] p-[4px_8px] bg-[#5352AD] text-white '
-                    >
-                      Delete
-                    </span>
+                
                     <input
                       type='checkbox'
                       checked={selectAll}

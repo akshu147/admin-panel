@@ -36,40 +36,25 @@ const Viewcategory = () => {
 
   // ✅ Delete with Confirmation
   const singledelete = async id => {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Yes, delete it!'
-    }).then(async result => {
-      if (result.isConfirmed) {
-        try {
-          const responce = await axios.delete(
-            `${apiUrl}/category/delete-category/${id}`
-          )
-          if (responce.status === 200) {
-            Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: 'Successfully deleted category!',
-              showConfirmButton: false,
-              timer: 1500
-            })
-            showcategory()
-          }
-        } catch (err) {
-          console.error('Error deleting category:', err)
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong while deleting category!'
-          })
-        }
-      }
-    })
+    try {
+      const responce = await axios.delete(
+        `${apiUrl}/category/delete-category/${id}`
+      )
+      if (responce.status == 200)
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Successfully deleted size',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        showcategory()
+
+    } catch (err) {
+      console.log('something went wrong')
+    }
+
+   
   }
 
   const hendlesingleselectd = e => {
@@ -101,13 +86,14 @@ const Viewcategory = () => {
         `${apiUrl}/category/delete-allcategory`,
         selectedid
       )
-      if(responce.status == 200)  Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Successfully deleted category!',
-        showConfirmButton: false,
-        timer: 1500
-      })
+      if (responce.status == 200)
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Successfully deleted category!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       showcategory()
       setselectedid([])
     } catch (err) {
@@ -199,7 +185,6 @@ const Viewcategory = () => {
                                 : value.categoryimg
                             }
                             alt=''
-                            className='hover:h-[50px] hover:w-[50px] transition-all duration-300'
                           />
                         </td>
                         <td className='p-[10px]'>{value.description}</td>

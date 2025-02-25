@@ -47,7 +47,7 @@ const Updatesize = () => {
       {/* Success Message */}
       <div
         style={{ right: shoftmodel }}
-        className="transition-all duration-200 bg-[#88bf882d] border w-[300px] text-center border-green-400 font-semibold p-4 text-white rounded-lg fixed top-10 z-20"
+        className="transition-all duration-200 bg-[#88bf882d] border w-[300px] text-center border-green-400 font-semibold p-4 text-white rounded-lg fixed bottom-[20px] z-20"
       >
         <Shoftmessagemodel message="Size Updated Successfully" />
         <p>Redirecting...</p>

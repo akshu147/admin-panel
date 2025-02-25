@@ -32,7 +32,7 @@ const Addcategory = () => {
     <>
       <div
         style={{ right: shoftmodel }}
-        className='bg-[#88bf882d] border w-[300px] text-center border-green-400 font-semibold p-4 text-white rounded-lg fixed top-10 right-10 z-20'
+        className='bg-[#88bf882d] border w-[300px] text-center border-green-400 font-semibold p-4 text-white rounded-lg fixed bottom-10 right-10 z-20'
       >
         <Shoftmessagemodel message='Size Added' />
         <p>Redirecting...</p>

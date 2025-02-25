@@ -3,7 +3,7 @@ import React from 'react'
 
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {HashRouter, Route, Routes } from 'react-router-dom'
 import Deshboard from './assets/pages/Deshboard'
 import Color from './assets/pages/Color'
 import Layout from './RouterLayout/Layout'
@@ -25,13 +25,15 @@ import Sliderview from './assets/pages/Sliderview'
 import TermaConditons from './assets/pages/TermaConditons'
 import Updatesize from './assets/pages/Updatesize'
 import Updatecategory from './assets/pages/Updatecategory'
+import Updateslider from './assets/pages/Updateslider'
+import Updateproductcat from './assets/pages/Updateproductcat'
 const root = createRoot(document.getElementById('root'))
 
 root.render(
   <>
     <StrictMode>
       <ContextProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
 
             <Route path='/' element={<Layout />}>
@@ -42,8 +44,8 @@ root.render(
               <Route path='size/view-size' element={<Viewsize />} />
               <Route path='parent/add-category' element={<Addcategory />} />
               <Route path='parent/view-category' element={<Viewcategory />} />
-              <Route path='add-product-cat' element={<Addproductcat />} />
-              <Route path='view-product-cat' element={<Viewproductcat />} />
+              <Route path='product/add-product-cat' element={<Addproductcat />} />
+              <Route path='product/view-product-cat' element={<Viewproductcat />} />
               <Route path='product-items' element={<Productitems />} />
               <Route path='size/update-size/:_id' element={<Updatesize/>}/>
               <Route
@@ -55,13 +57,15 @@ root.render(
               <Route path='slider/slider-view' element={<Sliderview />} />
               <Route path="slider/slider-detail" element={<Sliderdetail/>}/>
               <Route path='category/update-category/:id' element={<Updatecategory/>}/>
+              <Route path="slider/update-detail/:id" element={<Updateslider/>}/>
+              <Route path='update-product-cat/:id' element={<Updateproductcat/>}/>
             </Route>
             <Route path='/orders' element={<Orders />} />
             <Route path='terms$conditions' element={<TermaConditons/>}/>
           
 
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </ContextProvider>
     </StrictMode>
   </>

@@ -284,7 +284,7 @@ const Left = () => {
             <TECollapse show={activeElement === 'element3'} className='!mt-0'>
               <div className='px-5 py-4'>
                 <ul className='list-circle list-inside'>
-                  <Link to={'/add-product-cat'}>
+                  <Link to={'/product/add-product-cat'}>
                     {' '}
                     <li onClick={hideleft} className='px-[10px] flex items-center gap-[10px]'>
                       <i className='text-[5px]'>
@@ -293,7 +293,7 @@ const Left = () => {
                       <span>Add Product Category</span>
                     </li>
                   </Link>
-                  <Link to={'/view-product-cat'}>
+                  <Link to={'/product/view-product-cat'}>
                     {' '}
                     <li onClick={hideleft} className='px-[10px] flex items-center gap-[10px] mt-[10px]'>
                       <i className='text-[5px]'>

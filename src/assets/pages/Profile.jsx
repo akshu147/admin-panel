@@ -16,6 +16,7 @@ const Profile = () => {
     try{
       const responce = await axios.put(`${apiUrl}/profile/update-profile`, alldata)
       console.log(responce)
+      console.log("i love you")
 
     }
     catch(err) {
@@ -104,12 +105,21 @@ const Profile = () => {
               <p className='my-[15px]'>Sub Logo</p>
               <img width={'50px'} src={img} alt='' />
               <p className='my-[15px]'>Password</p>
-              <input
+             <div className='flex gap-[20px]'>
+             <input
                 className='block border w-[50%] my-[15px] p-[5px_10px] rounded-[8px] border-slate-500 outline-none focus:shadow-[1px_1px_5px_white] transition-all duration-200'
                 type='password'
                 placeholder='password'
                 name='password'
               />
+               <input
+                className='block border w-[50%] my-[15px] p-[5px_10px] rounded-[8px] border-slate-500 outline-none focus:shadow-[1px_1px_5px_white] transition-all duration-200'
+                type='text'
+                placeholder='USER:ID'
+                name='userid'
+              />
+
+             </div>
               <button type='submit' className='p-[8px_15px] rounded-[8px] bg-[#6261CC]'>
                 Update
               </button>
